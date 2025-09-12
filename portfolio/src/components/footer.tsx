@@ -7,7 +7,6 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // Para gerar partículas aleatórias de forma consistente
   const particles = Array.from({ length: 5 }, (_, i) => i);
 
   return (
