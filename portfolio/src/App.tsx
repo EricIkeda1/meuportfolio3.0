@@ -2,6 +2,7 @@
 
 import { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "motion/react";
+
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -13,7 +14,7 @@ import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// Lazy load Footer
+// Lazy load Footer para evitar erro de build
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
