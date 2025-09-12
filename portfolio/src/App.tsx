@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { motion } from "motion/react";
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -9,8 +9,11 @@ import { Timeline } from './components/Timeline';
 import { Achievements } from './components/Achievements';
 import { PortfolioVersions } from './components/PortfolioVersions';
 import { Contact } from './components/Contact';
-import Footer from "./components/Footer"; 
+// import Footer from "./components/Footer"; // NÃO usar mais import estático
 import { Toaster } from "./components/ui/sonner";
+
+// lazy import do Footer
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -38,7 +41,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Loading animation */}
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
@@ -68,7 +70,11 @@ export default function App() {
         <Contact />
       </main>
 
-      <Footer />
+      {/* Footer lazy com fallback */}
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
+
       <Toaster />
     </div>
   );
