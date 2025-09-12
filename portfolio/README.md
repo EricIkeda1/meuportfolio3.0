@@ -1,7 +1,7 @@
 
-  # Portfolio with Animations
+  # Portfolio de Projetos
 
-  This is a code bundle for Portfolio with Animations. The original project is available at https://www.figma.com/design/h9jFgk7cZzNOlLtmENjAwe/Portfolio-with-Animations.
+  This is a code bundle for Portfolio de Projetos. The original project is available at https://www.figma.com/design/NIKLwEtrSiWjOhDTE499sm/Portfolio-de-Projetos.
 
   ## Running the code
 
