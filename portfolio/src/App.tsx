@@ -1,18 +1,19 @@
-import { useState, useEffect, lazy, Suspense } from "react";
+"use client";
+
+import { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "motion/react";
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Timeline } from './components/Timeline';
-import { Achievements } from './components/Achievements';
-import { PortfolioVersions } from './components/PortfolioVersions';
-import { Contact } from './components/Contact';
-// import Footer from "./components/Footer"; // NÃO usar mais import estático
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
+import { Skills } from "./components/Skills";
+import { Projects } from "./components/Projects";
+import { Timeline } from "./components/Timeline";
+import { Achievements } from "./components/Achievements";
+import { PortfolioVersions } from "./components/PortfolioVersions";
+import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// lazy import do Footer
+// Lazy load Footer para evitar erro de build
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Loading animation */}
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
@@ -70,7 +72,7 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Footer lazy com fallback */}
+      {/* Suspense para lazy loading */}
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
