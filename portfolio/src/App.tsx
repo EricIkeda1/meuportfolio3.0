@@ -9,7 +9,7 @@ import { Timeline } from "./components/Timeline";
 import { Achievements } from "./components/Achievements";
 import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
-import Footer from "./components/Footer"; 
+import Footer from './components/Footer';
 import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
