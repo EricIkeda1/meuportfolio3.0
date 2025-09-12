@@ -13,7 +13,7 @@ export function PortfolioVersions() {
       description: 'Versão mais recente do portfólio com design moderno, animações fluidas, modo escuro e visualização inline de projetos. Desenvolvido com React, TypeScript e Motion.',
       technologies: ['React', 'TypeScript', 'Motion', 'Tailwind CSS'],
       status: 'Atual',
-      url: '#',
+      url: 'https://ericyikedaportfolio32.vercel.app/',
       features: [
         'Design responsivo e elegante',
         'Animações fluidas',
@@ -46,7 +46,7 @@ export function PortfolioVersions() {
       status: 'Legado',
       url: 'https://ericikedaportfolio.vercel.app/home',
       features: [
-        'Primeiro design profissional',
+        'Primeiro design funcional',
         'Apresentação de projetos',
         'Informações de contato',
         'Design responsivo básico'

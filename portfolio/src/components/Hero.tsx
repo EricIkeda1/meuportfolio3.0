@@ -1,4 +1,7 @@
+"use client";
+
 import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
 import { ArrowDown, Github, Linkedin, Mail, Calendar, GraduationCap, Code } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -6,10 +9,30 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 export function Hero() {
   const scrollToProjects = () => {
     const element = document.getElementById('projects');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // --- Digitação lenta "vai e vem" com cursor piscando ---
+  const fullName = 'Eric Yuji Ikeda';
+  const [displayedName, setDisplayedName] = useState('');
+  const [typingForward, setTypingForward] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDisplayedName(prev => {
+        if (typingForward) {
+          if (prev.length < fullName.length) return fullName.slice(0, prev.length + 1);
+          setTypingForward(false);
+          return prev;
+        } else {
+          if (prev.length > 0) return prev.slice(0, prev.length - 1);
+          setTypingForward(true);
+          return prev;
+        }
+      });
+    }, 300); // 👈 velocidade mais lenta
+    return () => clearInterval(interval);
+  }, [typingForward]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -48,20 +71,21 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.h1 
-                className="text-5xl lg:text-7xl tracking-tight"
+              {/* Nome com digitação lenta + cursor piscando */}
+              <motion.h1
+                className="text-5xl lg:text-7xl tracking-tight font-bold"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Eric Yuji{' '}
+                {displayedName}
                 <motion.span
-                  className="text-primary block"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="ml-1"
+                  style={{ display: 'inline-block' }}
+                  animate={{ opacity: [0, 1] }}
+                  transition={{ repeat: Infinity, duration: 0.7 }} // 👈 cursor piscando mais lento
                 >
-                  Ikeda
+                  |
                 </motion.span>
               </motion.h1>
             </motion.div>
@@ -76,7 +100,7 @@ export function Hero() {
                 Engenheiro de Software
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
-                Estudante de <strong>Engenharia de Software</strong> no UniSenaiPR desde 2021, 
+                Estudante de <strong>Engenharia de Software</strong> no UniSenaiPR em Londrina PR desde 2021, 
                 com previsão de formatura em 2026. Residente em <strong>Ibiporã, Paraná</strong>, 
                 sou um desenvolvedor dedicado à criação de soluções tecnológicas inovadoras que 
                 combinam funcionalidade, elegância e impacto real. Especializo-me em transformar 
@@ -90,11 +114,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex flex-wrap gap-4"
             >
-              <Button
-                onClick={scrollToProjects}
-                size="lg"
-                className="group"
-              >
+              <Button onClick={scrollToProjects} size="lg" className="group">
                 Ver Projetos
                 <motion.div
                   className="ml-2"
@@ -131,10 +151,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8"
             >
-              <motion.div 
-                whileHover={{ y: -2 }}
-                className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50"
-              >
+              <motion.div whileHover={{ y: -2 }} className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50">
                 <div className="p-2 bg-primary/10 rounded-full">
                   <Calendar className="h-4 w-4 text-primary" />
                 </div>
@@ -144,10 +161,7 @@ export function Hero() {
                 </div>
               </motion.div>
               
-              <motion.div 
-                whileHover={{ y: -2 }}
-                className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50"
-              >
+              <motion.div whileHover={{ y: -2 }} className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50">
                 <div className="p-2 bg-primary/10 rounded-full">
                   <GraduationCap className="h-4 w-4 text-primary" />
                 </div>
@@ -157,10 +171,7 @@ export function Hero() {
                 </div>
               </motion.div>
               
-              <motion.div 
-                whileHover={{ y: -2 }}
-                className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50"
-              >
+              <motion.div whileHover={{ y: -2 }} className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50">
                 <div className="p-2 bg-primary/10 rounded-full">
                   <Code className="h-4 w-4 text-primary" />
                 </div>
@@ -182,15 +193,8 @@ export function Hero() {
             <div className="relative aspect-square max-w-md mx-auto">
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20"
-                animate={{
-                  scale: [1, 1.1, 1],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
+                animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
               />
               <div className="relative z-10 aspect-square rounded-full overflow-hidden border-4 border-border shadow-2xl">
                 <ImageWithFallback
