@@ -1,39 +1,38 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Timeline } from './components/Timeline';
-import { Achievements } from './components/Achievements';
-import { PortfolioVersions } from './components/PortfolioVersions';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { Toaster } from './components/ui/sonner';
+import { useState, useEffect } from "react";
+import { motion } from "motion/react";
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
+import { Skills } from "./components/Skills";
+import { Projects } from "./components/Projects";
+import { Timeline } from "./components/Timeline";
+import { Achievements } from "./components/Achievements";
+import { PortfolioVersions } from "./components/PortfolioVersions";
+import { Contact } from "./components/Contact";
+import Footer from "./components/Footer"; 
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDark(true);
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     if (!isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
 
@@ -57,7 +56,7 @@ export default function App() {
       </motion.div>
 
       <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-      
+
       <main>
         <Hero />
         <About />
@@ -68,8 +67,8 @@ export default function App() {
         <PortfolioVersions />
         <Contact />
       </main>
-      
-      <Footer />
+
+      <Footer /> 
       <Toaster />
     </div>
   );

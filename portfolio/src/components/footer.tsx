@@ -1,10 +1,10 @@
-import { motion } from 'motion/react';
-import { ArrowUp } from 'lucide-react';
-import { Button } from './ui/button';
+import { motion } from "motion/react";
+import { ArrowUp } from "lucide-react";
+import { Button } from "./ui/button";
 
-export function Footer() {
+export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -35,9 +35,10 @@ export function Footer() {
             viewport={{ once: true }}
             className="text-center"
           >
-          <p className="text-muted-foreground flex items-center justify-center gap-2">
-            © {new Date().getFullYear()} Eric Yuji Ikeda. Todos os direitos reservados
-          </p>
+            <p className="text-muted-foreground flex items-center justify-center gap-2">
+              © {new Date().getFullYear()} Eric Yuji Ikeda. Todos os direitos
+              reservados
+            </p>
             <motion.p
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -91,7 +92,8 @@ export function Footer() {
           className="text-center text-sm text-muted-foreground"
         >
           <p>
-            Este portfólio foi desenvolvido com React, TypeScript, Tailwind CSS e Motion.
+            Este portfólio foi desenvolvido com React, TypeScript, Tailwind CSS
+            e Motion.
           </p>
         </motion.div>
       </div>
