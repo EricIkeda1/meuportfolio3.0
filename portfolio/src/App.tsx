@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "motion/react";
-
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
@@ -14,8 +13,8 @@ import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// Lazy load Footer para evitar erro de build
-const Footer = lazy(() => import("./components/Footer"));
+// Lazy load Footer com extensão correta
+const Footer = lazy(() => import("./components/Footer.tsx"));
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -43,7 +42,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Loading animation */}
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
@@ -73,7 +71,6 @@ export default function App() {
         <Contact />
       </main>
 
-      {/* Suspense para lazy loading */}
       <Suspense fallback={null}>
         <Footer />
       </Suspense>
