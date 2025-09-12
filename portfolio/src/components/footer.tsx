@@ -1,10 +1,14 @@
+"use client";
+
 import { motion } from "motion/react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (typeof window !== "undefined") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const particles = Array.from({ length: 5 }, (_, i) => i);
@@ -92,8 +96,8 @@ export default function Footer() {
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary/10 rounded-full"
-            initial={{ x: Math.random() * window.innerWidth, y: window.innerHeight }}
-            animate={{ y: [window.innerHeight, -100], opacity: [0, 0.5, 0] }}
+            initial={{ x: typeof window !== "undefined" ? Math.random() * window.innerWidth : 0, y: 0 }}
+            animate={{ y: [-100, typeof window !== "undefined" ? window.innerHeight : 0], opacity: [0, 0.5, 0] }}
             transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, delay: Math.random() * 5 }}
           />
         ))}
