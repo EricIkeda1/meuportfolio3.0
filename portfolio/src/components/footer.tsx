@@ -7,6 +7,9 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Para gerar partículas aleatórias de forma consistente
+  const particles = Array.from({ length: 5 }, (_, i) => i);
+
   return (
     <footer className="relative bg-muted/50 border-t border-border">
       <div className="container mx-auto px-4 py-12">
@@ -19,9 +22,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h3 className="text-2xl font-bold mb-2">Eric Yuji Ikeda</h3>
-            <p className="text-muted-foreground">
-              Engenheiro de Software em formação
-            </p>
+            <p className="text-muted-foreground">Engenheiro de Software em formação</p>
             <p className="text-sm text-muted-foreground mt-1">
               UniSenaiPR • 2021/2 - 2026/2
             </p>
@@ -36,8 +37,7 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-muted-foreground flex items-center justify-center gap-2">
-              © {new Date().getFullYear()} Eric Yuji Ikeda. Todos os direitos
-              reservados
+              © {new Date().getFullYear()} Eric Yuji Ikeda. Todos os direitos reservados
             </p>
             <motion.p
               initial={{ opacity: 0 }}
@@ -58,16 +58,8 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex justify-center md:justify-end"
           >
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={scrollToTop}
-              className="group"
-            >
-              <motion.div
-                animate={{ y: [0, -2, 0] }}
-                transition={{ repeat: Infinity, duration: 2 }}
-              >
+            <Button variant="outline" size="icon" onClick={scrollToTop} className="group">
+              <motion.div animate={{ y: [0, -2, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
                 <ArrowUp className="h-4 w-4 group-hover:text-primary transition-colors" />
               </motion.div>
             </Button>
@@ -91,32 +83,19 @@ export default function Footer() {
           viewport={{ once: true }}
           className="text-center text-sm text-muted-foreground"
         >
-          <p>
-            Este portfólio foi desenvolvido com React, TypeScript, Tailwind CSS
-            e Motion.
-          </p>
+          <p>Este portfólio foi desenvolvido com React, TypeScript, Tailwind CSS e Motion.</p>
         </motion.div>
       </div>
 
       {/* Floating decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
+        {particles.map((i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary/10 rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: window.innerHeight,
-            }}
-            animate={{
-              y: [window.innerHeight, -100],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
+            initial={{ x: Math.random() * window.innerWidth, y: window.innerHeight }}
+            animate={{ y: [window.innerHeight, -100], opacity: [0, 0.5, 0] }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, delay: Math.random() * 5 }}
           />
         ))}
       </div>
