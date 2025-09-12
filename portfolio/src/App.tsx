@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Timeline } from './components/Timeline';
-import { Achievements } from './components/Achievements';
-import { PortfolioVersions } from './components/PortfolioVersions';
-import { Contact } from './components/Contact';
-import Footer from './components/Footer'; 
-import { Toaster } from './components/ui/sonner';
-
+import { Navbar } from "./components/Navbar";
+import { Hero } from "./components/Hero";
+import { About } from "./components/About";
+import { Skills } from "./components/Skills";
+import { Projects } from "./components/Projects";
+import { Timeline } from "./components/Timeline";
+import { Achievements } from "./components/Achievements";
+import { PortfolioVersions } from "./components/PortfolioVersions";
+import { Contact } from "./components/Contact";
+import Footer from "./components/Footer"; 
+import { Toaster } from "./components/ui/sonner";
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
