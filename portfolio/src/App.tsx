@@ -13,8 +13,6 @@ import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
 // lazy load Footer
-const Footer = lazy(() => import("./components/Footer"));
-
 export default function App() {
   const [isDark, setIsDark] = useState(false);
 
@@ -71,7 +69,6 @@ export default function App() {
       </main>
 
       <Suspense fallback={null}>
-        <Footer />
       </Suspense>
 
       <Toaster />
