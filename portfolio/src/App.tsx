@@ -14,7 +14,7 @@ import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
 // Lazy load Footer para evitar erro de build
-const Footer = lazy(() => import("./components/Footer"));
+const Footer = lazy(() => import("./components/Footer.tsx")); // explicitando extensão pra evitar case-sensitive
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -73,7 +73,7 @@ export default function App() {
       </main>
 
       {/* Suspense para lazy loading */}
-      <Suspense fallback={null}>
+      <Suspense fallback={<div className="h-24" />}>
         <Footer />
       </Suspense>
 
