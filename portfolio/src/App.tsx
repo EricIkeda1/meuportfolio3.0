@@ -13,7 +13,7 @@ import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// Lazy load Footer com extensão correta
+// Lazy load Footer com extensão completa para evitar build fail
 const Footer = lazy(() => import("./components/Footer.tsx"));
 
 export default function App() {
