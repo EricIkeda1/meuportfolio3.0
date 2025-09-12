@@ -1,5 +1,4 @@
-"use client";
-
+// src/App.tsx
 import { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "motion/react";
 import { Navbar } from "./components/Navbar";
@@ -13,8 +12,8 @@ import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// Lazy load Footer com extensão completa para evitar build fail
-const Footer = lazy(() => import("./components/Footer.tsx"));
+// lazy load Footer
+const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
