@@ -6,13 +6,6 @@ import { Button } from './ui/button';
 export function Contact() {
   const contactInfo = [
     {
-      icon: Mail,
-      label: 'E-mail',
-      value: 'ericikeda2002@gmail.com',
-      href: 'mailto:ericikeda2002@gmail.com',
-      color: 'text-red-500'
-    },
-    {
       icon: Github,
       label: 'GitHub',
       value: 'EricIkeda1',

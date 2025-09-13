@@ -30,7 +30,7 @@ export function Hero() {
           return prev;
         }
       });
-    }, 300); // 👈 velocidade mais lenta
+    }, 300); 
     return () => clearInterval(interval);
   }, [typingForward]);
 
@@ -83,7 +83,7 @@ export function Hero() {
                   className="ml-1"
                   style={{ display: 'inline-block' }}
                   animate={{ opacity: [0, 1] }}
-                  transition={{ repeat: Infinity, duration: 0.7 }} // 👈 cursor piscando mais lento
+                  transition={{ repeat: Infinity, duration: 0.7 }} 
                 >
                   |
                 </motion.span>
@@ -134,11 +134,6 @@ export function Hero() {
                 <Button variant="outline" size="icon" asChild>
                   <a href="https://www.linkedin.com/in/ericikeda1/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="h-4 w-4" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <a href="mailto:ericikeda2002@gmail.com">
-                    <Mail className="h-4 w-4" />
                   </a>
                 </Button>
               </div>

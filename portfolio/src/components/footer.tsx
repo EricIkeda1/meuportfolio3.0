@@ -22,7 +22,7 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-2">Eric Yuji Ikeda</h3>
+            <h3 className="text-2xl font-bold mb-2">Eric Ikeda</h3>
             <p className="text-muted-foreground">Engenheiro de Software em formação</p>
             <p className="text-sm text-muted-foreground mt-1">
               UniSenaiPR • 2021/2 - 2026/2
@@ -38,7 +38,7 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-muted-foreground flex items-center justify-center gap-2">
-              © {new Date().getFullYear()} Eric Yuji Ikeda. Todos os direitos reservados
+              © {new Date().getFullYear()} Eric Ikeda. Todos os direitos reservados
             </p>
             <motion.p
               initial={{ opacity: 0 }}
