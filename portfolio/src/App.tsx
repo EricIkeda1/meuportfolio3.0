@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useState, useEffect, Suspense, lazy } from "react";
 import { motion } from "motion/react";
 import { Navbar } from "./components/Navbar";
@@ -12,7 +11,6 @@ import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
 
-// lazy load Footer
 export default function App() {
   const [isDark, setIsDark] = useState(false);
 
