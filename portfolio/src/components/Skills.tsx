@@ -168,8 +168,8 @@ export function Skills() {
             <h3 className="text-xl font-semibold mb-4">Sempre Aprendendo</h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Como estudante de Engenharia de Software, estou constantemente explorando 
-              novas tecnologias e aprimorando minhas habilidades. Meu foco atual está em 
-              aprofundar conhecimentos em arquitetura de software e segurança de aplicações.
+              novas tecnologias e aprimorando minhas habilidades. Meu foco atual é aprimorar os Design de Interfaces, Desenvolvimento Web e Desenvolvimento Mobile.
+              E outros tópicos que me interessam incluem Inteligência Artificial, Machine Learning e DevOps.
             </p>
           </Card>
         </motion.div>
