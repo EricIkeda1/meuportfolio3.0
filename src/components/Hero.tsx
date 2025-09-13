@@ -12,24 +12,34 @@ export function Hero() {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    handleResize(); 
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const fullName = 'Eric Ikeda';
   const [displayedName, setDisplayedName] = useState('');
   const [phase, setPhase] = useState<'typing' | 'pauseAfterTyping' | 'erasing' | 'pauseBeforeTyping'>('typing');
   const [cursorVisible, setCursorVisible] = useState(true);
 
-  // Cursor piscando
   useEffect(() => {
     const blink = setInterval(() => setCursorVisible(prev => !prev), 500);
     return () => clearInterval(blink);
   }, []);
 
-  // Loop de digitação/apagamento com pausa de 5s só após apagar
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     let interval: NodeJS.Timeout;
 
     if (phase === 'pauseBeforeTyping') {
-      timeout = setTimeout(() => setPhase('typing'), 5000); // pausa 5s antes de digitar novamente
+      timeout = setTimeout(() => setPhase('typing'), 5000);
     }
 
     if (phase === 'typing') {
@@ -45,7 +55,7 @@ export function Hero() {
     }
 
     if (phase === 'pauseAfterTyping') {
-      timeout = setTimeout(() => setPhase('erasing'), 5000); // pausa 5s depois de digitar
+      timeout = setTimeout(() => setPhase('erasing'), 5000);
     }
 
     if (phase === 'erasing') {
@@ -55,7 +65,7 @@ export function Hero() {
         i--;
         if (i === 0) {
           clearInterval(interval);
-          setPhase('pauseBeforeTyping'); // pausa 5s antes de digitar de novo
+          setPhase('pauseBeforeTyping');
         }
       }, 200);
     }
@@ -70,7 +80,6 @@ export function Hero() {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Texto */}
           <div className="space-y-8">
             <motion.h1
               className="text-5xl lg:text-7xl tracking-tight font-bold"
@@ -123,7 +132,6 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
               <div className="flex items-center gap-3 p-4 bg-muted/30 backdrop-blur-sm rounded-lg border border-border/50">
                 <Calendar className="h-4 w-4 text-primary" />
@@ -149,28 +157,29 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Imagem */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="relative"
-          >
-            <div className="relative aspect-square max-w-md mx-auto">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20"
-                animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
-                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
-              />
-              <div className="relative z-10 aspect-square rounded-full overflow-hidden border-4 border-border shadow-2xl">
-                <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1645947091786-4399f228f5f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-                  alt="Eric Yuji Ikeda"
-                  className="w-full h-full object-cover"
+          {isDesktop && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative"
+            >
+              <div className="relative aspect-square max-w-md mx-auto">
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full blur-3xl opacity-20"
+                  animate={{ scale: [1, 1.1, 1], rotate: [0, 180, 360] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
                 />
+                <div className="relative z-10 aspect-square rounded-full overflow-hidden border-4 border-border shadow-2xl">
+                  <ImageWithFallback
+                    src="https://images.unsplash.com/photo-1645947091786-4399f228f5f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                    alt="Eric Yuji Ikeda"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
