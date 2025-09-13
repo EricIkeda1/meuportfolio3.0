@@ -13,7 +13,7 @@ export function Hero() {
   };
 
   // --- Digitação lenta "vai e vem" com cursor piscando ---
-  const fullName = 'Eric Yuji Ikeda';
+  const fullName = 'Eric Ikeda';
   const [displayedName, setDisplayedName] = useState('');
   const [typingForward, setTypingForward] = useState(true);
 
