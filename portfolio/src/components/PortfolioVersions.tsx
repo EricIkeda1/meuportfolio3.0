@@ -11,7 +11,7 @@ export function PortfolioVersions() {
       title: 'Portfolio Atual',
       year: '2025',
       description: 'Versão mais recente do portfólio com design moderno, animações fluidas, modo escuro e visualização inline de projetos. Desenvolvido com React, TypeScript e Motion.',
-      technologies: ['React', 'TypeScript', 'Motion', 'Tailwind CSS', 'Vercel'],
+      technologies: ['React', 'TypeScript', 'Motion', 'Tailwind CSS', 'Vercel','Figma'],
       status: 'Atual',
       url: 'https://ericyikedaportfolio32.vercel.app/',
       features: [
@@ -34,7 +34,9 @@ export function PortfolioVersions() {
         'Layout mais limpo',
         'Melhor organização de projetos',
         'Navegação aprimorada',
-        'Performance otimizada'
+        'Performance otimizada',
+        'Modo escuro/claro'
+
       ]
     },
     {
