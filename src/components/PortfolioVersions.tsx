@@ -7,7 +7,7 @@ import { Badge } from './ui/badge';
 export function PortfolioVersions() {
   const versions = [
     {
-      version: '3.0',
+      version: '3.2',
       title: 'Portfolio Atual',
       year: '2025',
       description: 'Versão mais recente do portfólio com design moderno, animações fluidas, modo escuro e visualização inline de projetos. Desenvolvido com React, TypeScript e Motion.',
