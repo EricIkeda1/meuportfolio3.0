@@ -10,7 +10,7 @@ import { Achievements } from "./components/Achievements";
 import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
-import Footer from "./components/Footer"; 
+import Footer from "./components/Footer.tsx;"
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
