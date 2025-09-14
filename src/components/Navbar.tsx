@@ -43,11 +43,10 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
 
   const scrollToSection = (sectionId: string) => {
     setIsMenuOpen(false);
-
     setTimeout(() => {
       const element = document.getElementById(sectionId);
       if (element) {
-        const yOffset = -80; 
+        const yOffset = -80;
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: 'smooth' });
       }
@@ -62,6 +61,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
+          {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -72,7 +72,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 relative">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.id}
@@ -80,17 +80,26 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-3 py-2 transition-colors ${
-                  activeSection === item.id
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className="relative px-3 py-2 transition-colors text-muted-foreground hover:text-foreground"
               >
-                {item.label}
+                {/* Sombreamento animado */}
+                <motion.div
+                  layoutId="hoverBg"
+                  className={`absolute inset-0 rounded-md bg-primary/10 pointer-events-none`}
+                  initial={{ opacity: 0 }}
+                  animate={{
+                    opacity: activeSection === item.id ? 1 : 0
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+
+                <span className="relative z-10">{item.label}</span>
+
+                {/* Linha ativa */}
                 {activeSection === item.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary rounded"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
@@ -115,7 +124,6 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
               </motion.div>
             </Button>
 
-            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
