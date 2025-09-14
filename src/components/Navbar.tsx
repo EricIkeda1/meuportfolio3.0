@@ -64,7 +64,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
             transition={{ delay: 0.2 }}
             className="font-bold text-xl"
           >
-            Eric Ikeda
+            Eric Y. Ikeda
           </motion.div>
 
           {/* Desktop Navigation */}
