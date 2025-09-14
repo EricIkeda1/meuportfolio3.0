@@ -1,149 +1,167 @@
-import { motion } from 'motion/react';
-import { Calendar, GraduationCap, BookOpen, Users } from 'lucide-react';
-import { Card } from './ui/card';
-import { Badge } from './ui/badge';
+import { motion } from "motion/react";
+import { Calendar, GraduationCap, BookOpen, Users } from "lucide-react";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
 
 export function Timeline() {
   const timelineEvents = [
     {
-      year: '2021/2',
-      title: 'Início da Graduação (Remoto)',
-      subtitle: 'UniSenaiPR - Engenharia de Software (antiga Faculdade da Indústria Senai)',
+      year: "2021/2",
+      title: "Início da Graduação (Remoto)",
+      subtitle:
+        "UniSenaiPR - Engenharia de Software (antiga Faculdade da Indústria Senai)",
       description:
-        'Início da jornada acadêmica em Engenharia de Software com aulas remotas devido à pandemia, explorando fundamentos de programação e lógica computacional.',
+        "Início da jornada acadêmica em Engenharia de Software com aulas remotas devido à pandemia, explorando fundamentos de programação e lógica computacional.",
       icon: GraduationCap,
-      color: 'bg-blue-500',
-      iconColor: 'text-blue-500',
+      color: "bg-blue-500",
       achievements: [
-        'Design e Aplicações de Engenharia de Software',
-        'Estatística Orientada a Ciência de Dados',
-        'Jornada de Aprendizagem – Requisitos e Configuração de Software',
-        'Matemática Discreta e Finita',
+        "Design e Aplicações de Engenharia de Software",
+        "Estatística Orientada a Ciência de Dados",
+        "Jornada de Aprendizagem – Requisitos e Configuração de Software",
+        "Matemática Discreta e Finita",
       ],
     },
     {
-      year: '2022/1',
-      title: 'Aulas Presenciais e Primeiros Projetos',
-      subtitle: 'Desenvolvimento Web e Estruturas de Dados',
+      year: "2022/1",
+      title: "Aulas Presenciais e Primeiros Projetos",
+      subtitle: "Desenvolvimento Web e Estruturas de Dados",
       description:
-        'Transição para aulas presenciais, aprofundamento em estruturas de dados, projetos orientados a objetos e experiência do usuário.',
+        "Transição para aulas presenciais, aprofundamento em estruturas de dados, projetos orientados a objetos e experiência do usuário.",
       icon: BookOpen,
-      color: 'bg-green-500',
-      iconColor: 'text-green-500',
+      color: "bg-green-500",
       achievements: [
-        'Estrutura e Armazenamentos de Dados',
-        'Jornada de Aprendizagem – Experiência de Usuário e Conectividade',
-        'Projeto de Sistemas Orientados a Objetos',
-        'Design de Estruturas de Busca e Armazenamento',
+        "Estrutura e Armazenamentos de Dados",
+        "Jornada de Aprendizagem – Experiência de Usuário e Conectividade",
+        "Projeto de Sistemas Orientados a Objetos",
+        "Design de Estruturas de Busca e Armazenamento",
       ],
     },
     {
-      year: '2022/2',
-      title: '4° Período',
-      subtitle: 'Banco de Dados e Modelagem de Software',
+      year: "2022/2",
+      title: "4° Período",
+      subtitle: "Banco de Dados e Modelagem de Software",
       description:
-        'Desenvolvimento de competências em modelagem de software e bancos de dados não relacionais.',
+        "Desenvolvimento de competências em modelagem de software e bancos de dados não relacionais.",
       icon: Users,
-      color: 'bg-purple-500',
-      iconColor: 'text-purple-500',
+      color: "bg-purple-500",
       achievements: [
-        'Concepção e Estruturação de Busca e Armazenamento de Dados Não Lineares',
-        'Jornada de Aprendizagem – Estratégias, Compliance e Governança de TI',
-        'Modelagem de Software',
-        'Projeto de Banco de Dados Não Relacionais',
+        "Concepção e Estruturação de Busca e Armazenamento de Dados Não Lineares",
+        "Jornada de Aprendizagem – Estratégias, Compliance e Governança de TI",
+        "Modelagem de Software",
+        "Projeto de Banco de Dados Não Relacionais",
       ],
     },
     {
-      year: '2023/1',
-      title: '5° Período',
-      subtitle: 'Redes e Web Frontend',
+      year: "2023/1",
+      title: "5° Período",
+      subtitle: "Redes e Web Frontend",
       description:
-        'Início do desenvolvimento em web frontend, inteligência artificial aplicada e métodos quantitativos.',
+        "Início do desenvolvimento em web frontend, inteligência artificial aplicada e métodos quantitativos.",
       icon: BookOpen,
-      color: 'bg-orange-500',
-      iconColor: 'text-orange-500',
+      color: "bg-orange-500",
       achievements: [
-        'Redes e Infraestruturas Conectadas',
-        'Web Frontend Technologies',
-        'Inteligência Artificial Aplicada',
-        'Jornada de Aprendizagem – Métodos Quantitativos Aplicados a Sistemas',
+        "Redes e Infraestruturas Conectadas",
+        "Web Frontend Technologies",
+        "Inteligência Artificial Aplicada",
+        "Jornada de Aprendizagem – Métodos Quantitativos Aplicados a Sistemas",
       ],
     },
     {
-      year: '2023/2',
-      title: '6° Período',
-      subtitle: 'Backend e Mobile',
+      year: "2023/2",
+      title: "6° Período",
+      subtitle: "Backend e Mobile",
       description:
-        'Aprofundamento em backend, desenvolvimento mobile e otimização de sistemas.',
+        "Aprofundamento em backend, desenvolvimento mobile e otimização de sistemas.",
       icon: Users,
-      color: 'bg-cyan-500',
-      iconColor: 'text-cyan-500',
+      color: "bg-cyan-500",
       achievements: [
-        'Backend Development',
-        'Desenvolvimento Mobile',
-        'Jornada de Aprendizagem – Otimização de Sistemas e IOT',
-        'Machine Learning e Visão Computacional',
+        "Backend Development",
+        "Desenvolvimento Mobile",
+        "Jornada de Aprendizagem – Otimização de Sistemas e IOT",
+        "Machine Learning e Visão Computacional",
       ],
     },
     {
-      year: '2024/1',
-      title: '7° Período',
-      subtitle: 'Arquitetura, Data Science e Estágio',
+      year: "2024/1",
+      title: "7° Período",
+      subtitle: "Arquitetura, Data Science e Estágio",
       description:
-        'Experiência prática em arquitetura de software, data science, estágio supervisionado e gerência de qualidade.',
+        "Experiência prática em arquitetura de software, data science, estágio supervisionado e gerência de qualidade.",
       icon: BookOpen,
-      color: 'bg-red-500',
-      iconColor: 'text-red-500',
+      color: "bg-red-500",
       achievements: [
-        'Arquitetura de Software',
-        'Data Science',
-        'Estágio Supervisionado',
-        'Jornada de Aprendizagem - Gerência de Qualidade',
-        'Sistemas Operacionais de Tempo Real',
+        "Arquitetura de Software",
+        "Data Science",
+        "Estágio Supervisionado",
+        "Jornada de Aprendizagem - Gerência de Qualidade",
+        "Sistemas Operacionais de Tempo Real",
       ],
     },
     {
-      year: '2024/2',
-      title: '8° Período',
-      subtitle: 'IoT, Cloud e Segurança',
+      year: "2024/2",
+      title: "8° Período",
+      subtitle: "IoT, Cloud e Segurança",
       description:
-        'Especialização em IoT, cloud computing, segurança e computação gráfica.',
+        "Especialização em IoT, cloud computing, segurança e computação gráfica.",
       icon: Users,
-      color: 'bg-purple-400',
-      iconColor: 'text-purple-400',
+      color: "bg-purple-400",
       achievements: [
-        'Arquitetura de Sistemas IoT e Cloud Computing',
-        'Cybersecurity',
-        'Jornada de Aprendizagem – Segurança e Nuvem',
-        'Computação Gráfica e Processamento de Imagens',
+        "Arquitetura de Sistemas IoT e Cloud Computing",
+        "Cybersecurity",
+        "Jornada de Aprendizagem – Segurança e Nuvem",
+        "Computação Gráfica e Processamento de Imagens",
       ],
     },
     {
-      year: '2025/1',
-      title: '1° Período (Grade Reversa)',
-      subtitle: 'Ciência, Tecnologia e Design de Software',
+      year: "2025/1",
+      title: "1° Período (Grade Reversa)",
+      subtitle: "Ciência, Tecnologia e Design de Software",
       description:
-        'Início do percurso de acordo com a grade reversa, focando em ciência, tecnologia e design de software aplicado à engenharia.',
+        "Início do percurso de acordo com a grade reversa, focando em ciência, tecnologia e design de software aplicado à engenharia.",
       icon: Users,
-      color: 'bg-yellow-500',
-      iconColor: 'text-yellow-500',
+      color: "bg-yellow-500",
       achievements: [
-        'Ciência, Tecnologia e Sustentabilidade',
-        'Design de Software Aplicado a Engenharia',
-        'Jornada de Aprendizagem - Inovação e Necessidades da Sociedade',
-        'Lógica Computacional',
+        "Ciência, Tecnologia e Sustentabilidade",
+        "Design de Software Aplicado a Engenharia",
+        "Jornada de Aprendizagem - Inovação e Necessidades da Sociedade",
+        "Lógica Computacional",
       ],
     },
     {
-      year: '2026/2',
-      title: 'Formatura (Prevista)',
-      subtitle: 'Conclusão da Graduação',
+      year: "2025/2",
+      title: "DPs",
+      subtitle: "Refazendo disciplinas",
       description:
-        'Previsão de conclusão do curso de Engenharia de Software, pronto para novos desafios profissionais.',
+        "Refazendo as disciplinas essenciais com aprendizado em desenvolvimento de aplicações e introdução à visão computacional e machine learning.",
+      icon: BookOpen,
+      color: "bg-teal-500",
+      achievements: [
+        "Jornada de Aprendizagem – Interface de Programação de Aplicações",
+        "Machine Learning e Visão Computacional",
+      ],
+    },
+    {
+      year: "2026/1 - 2026/2",
+      title: "DPs e Últimos Semestres",
+      subtitle: "Refazendo e concluindo matérias",
+      description:
+        "Refazendo disciplinas essenciais e concluindo o curso, com foco em Banco de Dados e inteligência artificial aplicada.",
+      icon: BookOpen,
+      color: "bg-indigo-500",
+      achievements: [
+        "Design de Estruturas de Busca e Armazenamento (Banco de Dados)",
+        "Inteligência Artificial Aplicada",
+      ],
+    },
+    {
+      year: "2026/2",
+      title: "Formatura (Prevista)",
+      subtitle: "Conclusão da Graduação",
+      description:
+        "Previsão de conclusão do curso de Engenharia de Software, pronto para novos desafios profissionais.",
       icon: GraduationCap,
-      color: 'bg-pink-500',
-      iconColor: 'text-pink-500',
-      achievements: ['Diploma', 'Portfolio Completo', 'Pronto para o Mercado'],
+      color: "bg-pink-500",
+      achievements: ["Diploma", "Portfolio Completo", "Pronto para o Mercado"],
     },
   ];
 
@@ -183,7 +201,8 @@ export function Timeline() {
           viewport={{ once: true }}
           className="relative"
         >
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block" />
+          {/* Linha vertical da timeline */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
 
           <div className="space-y-6 md:space-y-8">
             {timelineEvents.map((event, index) => (
@@ -191,33 +210,31 @@ export function Timeline() {
                 key={index}
                 variants={itemVariants}
                 className={`relative flex ${
-                  index % 2 === 0
-                    ? 'md:flex-row'
-                    : 'md:flex-row-reverse'
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } items-start md:items-center`}
               >
+                {/* Bolinha colorida central */}
                 <motion.div
                   whileHover={{ scale: 1.2 }}
-                  className={`absolute left-4 md:left-1/2 w-4 h-4 ${event.color} rounded-full -translate-x-1/2 z-10 hidden md:block`}
+                  className={`absolute left-1/2 w-4 h-4 ${event.color} rounded-full -translate-x-1/2 z-10`}
                 />
 
                 <div
                   className={`w-full md:w-5/12 ${
-                    index % 2 === 0 ? '' : 'md:text-right'
+                    index % 2 === 0 ? "" : "md:text-right"
                   }`}
                 >
                   <Card className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 group">
                     <div
                       className={`flex items-start md:items-center gap-3 md:gap-4 mb-4 ${
-                        index % 2 === 0 ? '' : 'md:flex-row-reverse'
+                        index % 2 === 0 ? "" : "md:flex-row-reverse"
                       }`}
                     >
+                      {/* Ícone com fundo colorido */}
                       <div
-                        className={`p-2 md:p-3 rounded-full bg-muted flex-shrink-0`}
+                        className={`p-2 md:p-3 rounded-full ${event.color} flex-shrink-0`}
                       >
-                        <event.icon
-                          className={`h-4 w-4 md:h-5 md:w-5 ${event.iconColor}`}
-                        />
+                        <event.icon className="h-4 w-4 md:h-5 md:w-5 text-white" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
@@ -254,10 +271,6 @@ export function Timeline() {
                     </div>
                   </Card>
                 </div>
-
-                <div
-                  className={`w-3 h-3 md:w-4 md:h-4 ${event.color} rounded-full mr-3 md:mr-4 md:hidden flex-shrink-0 mt-2`}
-                />
               </motion.div>
             ))}
           </div>
