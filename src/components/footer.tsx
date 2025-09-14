@@ -3,8 +3,24 @@
 import { motion } from "motion/react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const [isClient, setIsClient] = useState(false);
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    setIsClient(true);
+    setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -88,18 +104,30 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      {/* Floating decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {particles.map((i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-primary/10 rounded-full"
-            initial={{ x: Math.random() * window.innerWidth, y: window.innerHeight }}
-            animate={{ y: [window.innerHeight, -100], opacity: [0, 0.5, 0] }}
-            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, delay: Math.random() * 5 }}
-          />
-        ))}
-      </div>
+      {/* Floating decorative elements - apenas no cliente */}
+      {isClient && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {particles.map((i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary/10 rounded-full"
+              initial={{ 
+                x: Math.random() * windowSize.width, 
+                y: windowSize.height 
+              }}
+              animate={{ 
+                y: [windowSize.height, -100], 
+                opacity: [0, 0.5, 0] 
+              }}
+              transition={{ 
+                duration: Math.random() * 10 + 10, 
+                repeat: Infinity, 
+                delay: Math.random() * 5 
+              }}
+            />
+          ))}
+        </div>
+      )}
     </footer>
   );
 }
