@@ -38,7 +38,7 @@ export default function Footer() {
             className="text-center"
           >
             <p className="text-muted-foreground flex items-center justify-center gap-2">
-              © {new Date().getFullYear()} Eric Ikeda. Todos os direitos reservados
+              © {new Date().getFullYear()} Eric Y. Ikeda. Todos os direitos reservados
             </p>
             <motion.p
               initial={{ opacity: 0 }}

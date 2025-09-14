@@ -10,6 +10,7 @@ import { Achievements } from "./components/Achievements";
 import { PortfolioVersions } from "./components/PortfolioVersions";
 import { Contact } from "./components/Contact";
 import { Toaster } from "./components/ui/sonner";
+import Footer  from "./components/Footer"; 
 
 export default function App() {
   const [isDark, setIsDark] = useState(false);
@@ -65,10 +66,9 @@ export default function App() {
         <PortfolioVersions />
         <Contact />
       </main>
-
+     <Footer />
       <Suspense fallback={null}>
       </Suspense>
-
       <Toaster />
     </div>
   );
