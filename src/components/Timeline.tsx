@@ -17,7 +17,7 @@ export function Timeline() {
       achievements: [
         "Design e Aplicações de Engenharia de Software",
         "Estatística Orientada a Ciência de Dados",
-        "Jornada de Aprendizagem – Requisitos e Configuração de Software",
+        "Jornada de Aprendizagem – Requisitos...",
         "Matemática Discreta e Finita",
       ],
     },
@@ -31,7 +31,7 @@ export function Timeline() {
       color: "bg-green-500",
       achievements: [
         "Estrutura e Armazenamentos de Dados",
-        "Jornada de Aprendizagem – Experiência de Usuário e Conectividade",
+        "Jornada de Aprendizagem – Experiência de Usuário...",
         "Projeto de Sistemas Orientados a Objetos",
         "Design de Estruturas de Busca e Armazenamento",
       ],
@@ -45,8 +45,8 @@ export function Timeline() {
       icon: Users,
       color: "bg-purple-500",
       achievements: [
-        "Concepção e Estruturação de Busca e Armazenamento de Dados Não Lineares",
-        "Jornada de Aprendizagem – Estratégias, Compliance e Governança de TI",
+        "Concepção e Estruturação de Busca e Armazenamento...",
+        "Jornada de Aprendizagem – Estratégias, Compliance...",
         "Modelagem de Software",
         "Projeto de Banco de Dados Não Relacionais",
       ],
@@ -63,7 +63,7 @@ export function Timeline() {
         "Redes e Infraestruturas Conectadas",
         "Web Frontend Technologies",
         "Inteligência Artificial Aplicada",
-        "Jornada de Aprendizagem – Métodos Quantitativos Aplicados a Sistemas",
+        "Jornada de Aprendizagem – Métodos Quantitativos...",
       ],
     },
     {
@@ -123,7 +123,7 @@ export function Timeline() {
       achievements: [
         "Ciência, Tecnologia e Sustentabilidade",
         "Design de Software Aplicado a Engenharia",
-        "Jornada de Aprendizagem - Inovação e Necessidades da Sociedade",
+        "Jornada de Aprendizagem - Inovação e Necessidades...",
         "Lógica Computacional",
       ],
     },
@@ -136,7 +136,7 @@ export function Timeline() {
       icon: BookOpen,
       color: "bg-teal-500",
       achievements: [
-        "Jornada de Aprendizagem – Interface de Programação de Aplicações",
+        "Jornada de Aprendizagem – Interface de Programação...",
         "Machine Learning e Visão Computacional",
       ],
     },
@@ -149,7 +149,7 @@ export function Timeline() {
       icon: BookOpen,
       color: "bg-indigo-500",
       achievements: [
-        "Design de Estruturas de Busca e Armazenamento (Banco de Dados)",
+        "Design de Estruturas de Busca e Armazenamento",
         "Inteligência Artificial Aplicada",
       ],
     },
@@ -216,7 +216,8 @@ export function Timeline() {
                 {/* Bolinha colorida central */}
                 <motion.div
                   whileHover={{ scale: 1.2 }}
-                  className={`absolute left-1/2 w-4 h-4 ${event.color} rounded-full -translate-x-1/2 z-10`}
+                  className={`absolute left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 
+                              w-4 h-4 ${event.color} rounded-full z-20 border-2 border-background`}
                 />
 
                 <div
@@ -230,12 +231,16 @@ export function Timeline() {
                         index % 2 === 0 ? "" : "md:flex-row-reverse"
                       }`}
                     >
-                      {/* Ícone com fundo colorido */}
-                      <div
-                        className={`p-2 md:p-3 rounded-full ${event.color} flex-shrink-0`}
-                      >
-                        <event.icon className="h-4 w-4 md:h-5 md:w-5 text-white" />
+                      {/* Ícone colorido */}
+                      <div className="p-2 md:p-3 rounded-full border-2 border-border flex-shrink-0">
+                        <event.icon
+                          className={`h-4 w-4 md:h-5 md:w-5 ${event.color.replace(
+                            "bg",
+                            "text"
+                          )}`}
+                        />
                       </div>
+
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <Calendar className="h-3 w-3 md:h-4 md:w-4 text-muted-foreground flex-shrink-0" />
