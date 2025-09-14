@@ -1,4 +1,4 @@
-import { useState, useEffect, Suspense, lazy } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { motion } from "motion/react";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
@@ -22,6 +22,23 @@ export default function App() {
       setIsDark(true);
       document.documentElement.classList.add("dark");
     }
+  }, []);
+
+  useEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    const scrollToTop = () => window.scrollTo(0, 0);
+
+    scrollToTop();
+    const id = setTimeout(scrollToTop, 0);
+    const raf = requestAnimationFrame(scrollToTop);
+
+    return () => {
+      clearTimeout(id);
+      cancelAnimationFrame(raf);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -65,8 +82,8 @@ export default function App() {
         <PortfolioVersions />
         <Contact />
       </main>
-      <Suspense fallback={null}>
-      </Suspense>
+
+      <Suspense fallback={null}></Suspense>
       <Toaster />
     </div>
   );
