@@ -109,4 +109,14 @@ export const projects: Project[] = [
     category: ['Full-stack'],
     liveUrl: 'https://jornada-2023-2-full-stack.vercel.app/',
   },
+  {
+    id: '10',
+    title: 'Primeiro Projeto Mobile - Desenvolvimento Mobile',
+    year: '2023',
+    description:
+      'Primeiro Projeto Mobile Desenvolvido.',
+    technologies: ['Flutter', 'Dart'],
+    category: ['Mobile'],
+    repoUrl: 'https://github.com/EricIkeda1/Projeto_Desenvolvimento_Mobile',
+  },
 ];

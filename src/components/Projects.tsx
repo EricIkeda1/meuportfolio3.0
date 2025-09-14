@@ -23,11 +23,6 @@ export function Projects() {
     visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-  };
-
   return (
     <section id="projects" className="py-20">
       <div className="container mx-auto px-4">
@@ -63,8 +58,30 @@ export function Projects() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center gap-3 mb-8">
-            {categories.map((category, index) => {
+          {/* Mobile Select */}
+          <div className="block md:hidden mb-6">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full rounded-lg border border-border bg-card text-foreground px-4 py-3"
+            >
+              {categories.map((category) => {
+                const count =
+                  category === 'Todos'
+                    ? projects.length
+                    : projects.filter((p) => p.category.includes(category)).length;
+                return (
+                  <option key={category} value={category}>
+                    {category} ({count})
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+
+          {/* Desktop Buttons */}
+          <div className="hidden md:flex flex-wrap justify-center w-full gap-3 mb-8">
+            {categories.map((category) => {
               const projectCount =
                 category === 'Todos'
                   ? projects.length
@@ -72,67 +89,36 @@ export function Projects() {
               const isActive = selectedCategory === category;
 
               return (
-                <motion.div
+                <motion.button
                   key={category}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="relative"
+                  onClick={() => setSelectedCategory(category)}
+                  className={`relative group overflow-hidden rounded-lg border transition-all duration-300 px-4 py-3 ${
+                    isActive
+                      ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25'
+                      : 'bg-card text-card-foreground border-border hover:border-primary/50 hover:shadow-md'
+                  }`}
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  <motion.button
-                    onClick={() => setSelectedCategory(category)}
-                    className={`relative w-full lg:w-auto group overflow-hidden rounded-lg border transition-all duration-300 ${
+                  <span
+                    className={`font-medium text-sm lg:text-base ${
                       isActive
-                        ? 'bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/25'
-                        : 'bg-card text-card-foreground border-border hover:border-primary/50 hover:shadow-md'
+                        ? 'text-primary-foreground'
+                        : 'text-foreground group-hover:text-primary'
                     }`}
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
                   >
-                    {/* Gradient Background */}
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-r transition-opacity duration-300 ${
-                        isActive
-                          ? 'opacity-100 from-primary to-primary/80'
-                          : 'opacity-0 from-primary/10 to-accent/10 group-hover:opacity-100'
-                      }`}
-                    />
-
-                    {/* Button Content */}
-                    <div className="relative px-4 py-3 flex flex-col items-center gap-1">
-                      <span
-                        className={`font-medium text-sm lg:text-base transition-colors ${
-                          isActive ? 'text-primary-foreground' : 'text-foreground group-hover:text-primary'
-                        }`}
-                      >
-                        {category}
-                      </span>
-
-                      <motion.div
-                        key={`${category}-${projectCount}`}
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ delay: 0.1 }}
-                        className={`inline-flex items-center justify-center min-w-[24px] h-6 px-2 text-xs font-medium rounded-full transition-all duration-300 ${
-                          isActive
-                            ? 'bg-primary-foreground/20 text-primary-foreground'
-                            : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'
-                        }`}
-                      >
-                        {projectCount}
-                      </motion.div>
-                    </div>
-
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeFilter"
-                        className="absolute bottom-0 left-0 right-0 h-1 bg-primary-foreground/30"
-                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                      />
-                    )}
-                  </motion.button>
-                </motion.div>
+                    {category}
+                  </span>
+                  <span
+                    className={`ml-2 inline-flex items-center justify-center min-w-[24px] h-6 px-2 text-xs font-medium rounded-full ${
+                      isActive
+                        ? 'bg-primary-foreground/20 text-primary-foreground'
+                        : 'bg-muted text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'
+                    }`}
+                  >
+                    {projectCount}
+                  </span>
+                </motion.button>
               );
             })}
           </div>
@@ -153,7 +139,12 @@ export function Projects() {
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -20, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: index * 0.1, type: 'spring', stiffness: 100 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  type: 'spring',
+                  stiffness: 100,
+                }}
                 layout
                 className="group"
               >
@@ -280,7 +271,9 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <p className="text-muted-foreground leading-relaxed">{selectedProject.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {selectedProject.description}
+                  </p>
 
                   <div>
                     <h4 className="font-semibold mb-3">Tecnologias Utilizadas</h4>
