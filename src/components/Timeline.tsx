@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Calendar, GraduationCap, Award, BookOpen, Users } from 'lucide-react';
+import { Calendar, GraduationCap, BookOpen, Users } from 'lucide-react';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 
@@ -7,53 +7,132 @@ export function Timeline() {
   const timelineEvents = [
     {
       year: '2021/2',
-      title: 'Início da Graduação',
-      subtitle: 'UniSenaiPR - Engenharia de Software',
+      title: 'Início da Graduação (Remoto)',
+      subtitle: 'UniSenaiPR - Engenharia de Software (antiga Faculdade da Indústria Senai)',
       description:
-        'Início da jornada acadêmica em Engenharia de Software, explorando fundamentos de programação e lógica computacional.',
+        'Início da jornada acadêmica em Engenharia de Software com aulas remotas devido à pandemia, explorando fundamentos de programação e lógica computacional.',
       icon: GraduationCap,
       color: 'bg-blue-500',
-      achievements: ['Fundamentos de Programação', 'Lógica Computacional', 'Algoritmos'],
+      iconColor: 'text-blue-500',
+      achievements: [
+        'Design e Aplicações de Engenharia de Software',
+        'Estatística Orientada a Ciência de Dados',
+        'Jornada de Aprendizagem – Requisitos e Configuração de Software',
+        'Matemática Discreta e Finita',
+      ],
     },
     {
-      year: '2022',
-      title: 'Primeiros Projetos',
-      subtitle: 'Desenvolvimento Web Básico',
+      year: '2022/1',
+      title: 'Aulas Presenciais e Primeiros Projetos',
+      subtitle: 'Desenvolvimento Web e Estruturas de Dados',
       description:
-        'Desenvolvimento dos primeiros projetos em HTML, CSS e JavaScript, construindo uma base sólida em tecnologias web.',
+        'Transição para aulas presenciais, aprofundamento em estruturas de dados, projetos orientados a objetos e experiência do usuário.',
       icon: BookOpen,
       color: 'bg-green-500',
-      achievements: ['HTML/CSS', 'JavaScript Básico', 'Projetos Web'],
+      iconColor: 'text-green-500',
+      achievements: [
+        'Estrutura e Armazenamentos de Dados',
+        'Jornada de Aprendizagem – Experiência de Usuário e Conectividade',
+        'Projeto de Sistemas Orientados a Objetos',
+        'Design de Estruturas de Busca e Armazenamento',
+      ],
     },
     {
-      year: '2023',
-      title: 'Eng2025 - Projeto em Equipe',
-      subtitle: 'Sistema de Monitoramento Industrial',
+      year: '2022/2',
+      title: '4° Período',
+      subtitle: 'Banco de Dados e Modelagem de Software',
       description:
-        'Participação no projeto para a Usipav, desenvolvendo sistema de monitoramento de produção com dashboard interativo.',
+        'Desenvolvimento de competências em modelagem de software e bancos de dados não relacionais.',
       icon: Users,
       color: 'bg-purple-500',
-      achievements: ['Trabalho em Equipe', 'React.js', 'Python/Django', 'Dashboard'],
+      iconColor: 'text-purple-500',
+      achievements: [
+        'Concepção e Estruturação de Busca e Armazenamento de Dados Não Lineares',
+        'Jornada de Aprendizagem – Estratégias, Compliance e Governança de TI',
+        'Modelagem de Software',
+        'Projeto de Banco de Dados Não Relacionais',
+      ],
     },
     {
-      year: '2024',
-      title: 'Ano de Expansão',
-      subtitle: 'Múltiplos Projetos e Iniciação Científica',
+      year: '2023/1',
+      title: '5° Período',
+      subtitle: 'Redes e Web Frontend',
       description:
-        'Ano mais produtivo com 6 projetos desenvolvidos, incluindo iniciação científica e projetos de segurança.',
-      icon: Award,
-      color: 'bg-orange-500',
-      achievements: ['6 Projetos Concluídos', 'Iniciação Científica', 'Criptografia', 'Flutter'],
-    },
-    {
-      year: '2025',
-      title: 'Desenvolvimento Mobile',
-      subtitle: 'Temperlights Mobile',
-      description:
-        'Desenvolvimento de aplicativo móvel com Flutter, expandindo conhecimentos para desenvolvimento mobile.',
+        'Início do desenvolvimento em web frontend, inteligência artificial aplicada e métodos quantitativos.',
       icon: BookOpen,
+      color: 'bg-orange-500',
+      iconColor: 'text-orange-500',
+      achievements: [
+        'Redes e Infraestruturas Conectadas',
+        'Web Frontend Technologies',
+        'Inteligência Artificial Aplicada',
+        'Jornada de Aprendizagem – Métodos Quantitativos Aplicados a Sistemas',
+      ],
+    },
+    {
+      year: '2023/2',
+      title: '6° Período',
+      subtitle: 'Backend e Mobile',
+      description:
+        'Aprofundamento em backend, desenvolvimento mobile e otimização de sistemas.',
+      icon: Users,
       color: 'bg-cyan-500',
-      achievements: ['Flutter/Dart', 'Mobile Development', 'Supabase API'],
+      iconColor: 'text-cyan-500',
+      achievements: [
+        'Backend Development',
+        'Desenvolvimento Mobile',
+        'Jornada de Aprendizagem – Otimização de Sistemas e IOT',
+        'Machine Learning e Visão Computacional',
+      ],
+    },
+    {
+      year: '2024/1',
+      title: '7° Período',
+      subtitle: 'Arquitetura, Data Science e Estágio',
+      description:
+        'Experiência prática em arquitetura de software, data science, estágio supervisionado e gerência de qualidade.',
+      icon: BookOpen,
+      color: 'bg-red-500',
+      iconColor: 'text-red-500',
+      achievements: [
+        'Arquitetura de Software',
+        'Data Science',
+        'Estágio Supervisionado',
+        'Jornada de Aprendizagem - Gerência de Qualidade',
+        'Sistemas Operacionais de Tempo Real',
+      ],
+    },
+    {
+      year: '2024/2',
+      title: '8° Período',
+      subtitle: 'IoT, Cloud e Segurança',
+      description:
+        'Especialização em IoT, cloud computing, segurança e computação gráfica.',
+      icon: Users,
+      color: 'bg-purple-400',
+      iconColor: 'text-purple-400',
+      achievements: [
+        'Arquitetura de Sistemas IoT e Cloud Computing',
+        'Cybersecurity',
+        'Jornada de Aprendizagem – Segurança e Nuvem',
+        'Computação Gráfica e Processamento de Imagens',
+      ],
+    },
+    {
+      year: '2025/1',
+      title: '1° Período (Grade Reversa)',
+      subtitle: 'Ciência, Tecnologia e Design de Software',
+      description:
+        'Início do percurso de acordo com a grade reversa, focando em ciência, tecnologia e design de software aplicado à engenharia.',
+      icon: Users,
+      color: 'bg-yellow-500',
+      iconColor: 'text-yellow-500',
+      achievements: [
+        'Ciência, Tecnologia e Sustentabilidade',
+        'Design de Software Aplicado a Engenharia',
+        'Jornada de Aprendizagem - Inovação e Necessidades da Sociedade',
+        'Lógica Computacional',
+      ],
     },
     {
       year: '2026/2',
@@ -62,30 +141,20 @@ export function Timeline() {
       description:
         'Previsão de conclusão do curso de Engenharia de Software, pronto para novos desafios profissionais.',
       icon: GraduationCap,
-      color: 'bg-primary',
+      color: 'bg-pink-500',
+      iconColor: 'text-pink-500',
       achievements: ['Diploma', 'Portfolio Completo', 'Pronto para o Mercado'],
     },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 0.8,
-      },
-    },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
   };
 
   return (
@@ -102,8 +171,8 @@ export function Timeline() {
             Jornada <span className="text-primary">Acadêmica</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Acompanhe minha evolução desde o início da graduação até os dias atuais, destacando os
-            principais marcos e conquistas ao longo do caminho.
+            Acompanhe minha evolução desde o início da graduação até a previsão
+            de formatura, destacando os principais marcos e conquistas.
           </p>
         </motion.div>
 
@@ -122,7 +191,9 @@ export function Timeline() {
                 key={index}
                 variants={itemVariants}
                 className={`relative flex ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  index % 2 === 0
+                    ? 'md:flex-row'
+                    : 'md:flex-row-reverse'
                 } items-start md:items-center`}
               >
                 <motion.div
@@ -130,7 +201,11 @@ export function Timeline() {
                   className={`absolute left-4 md:left-1/2 w-4 h-4 ${event.color} rounded-full -translate-x-1/2 z-10 hidden md:block`}
                 />
 
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? '' : 'md:text-right'}`}>
+                <div
+                  className={`w-full md:w-5/12 ${
+                    index % 2 === 0 ? '' : 'md:text-right'
+                  }`}
+                >
                   <Card className="p-4 md:p-6 hover:shadow-lg transition-all duration-300 group">
                     <div
                       className={`flex items-start md:items-center gap-3 md:gap-4 mb-4 ${
@@ -138,9 +213,11 @@ export function Timeline() {
                       }`}
                     >
                       <div
-                        className={`p-2 md:p-3 rounded-full ${event.color} text-primary-foreground flex-shrink-0`}
+                        className={`p-2 md:p-3 rounded-full bg-muted flex-shrink-0`}
                       >
-                        <event.icon className="h-4 w-4 md:h-5 md:w-5" />
+                        <event.icon
+                          className={`h-4 w-4 md:h-5 md:w-5 ${event.iconColor}`}
+                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
@@ -152,7 +229,9 @@ export function Timeline() {
                         <h3 className="text-lg md:text-xl font-semibold group-hover:text-primary transition-colors">
                           {event.title}
                         </h3>
-                        <p className="text-sm md:text-base text-primary/80">{event.subtitle}</p>
+                        <p className="text-sm md:text-base text-primary/80">
+                          {event.subtitle}
+                        </p>
                       </div>
                     </div>
 
@@ -161,11 +240,17 @@ export function Timeline() {
                     </p>
 
                     <div className="flex flex-wrap gap-1 md:gap-2">
-                      {event.achievements.map((achievement, achievementIndex) => (
-                        <Badge key={achievementIndex} variant="secondary" className="text-xs">
-                          {achievement}
-                        </Badge>
-                      ))}
+                      {event.achievements.map(
+                        (achievement, achievementIndex) => (
+                          <Badge
+                            key={achievementIndex}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {achievement}
+                          </Badge>
+                        )
+                      )}
                     </div>
                   </Card>
                 </div>
