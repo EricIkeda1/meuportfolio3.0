@@ -20,7 +20,7 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
     { id: 'timeline', label: 'Jornada' },
     { id: 'achievements', label: 'Conquistas' },
     { id: 'versions', label: 'Versões' },
-    { id: 'contact', label: 'Contato' }
+    { id: 'contact', label: 'Contato' },
   ];
 
   useEffect(() => {
@@ -42,11 +42,16 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
     setIsMenuOpen(false);
+
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const yOffset = -80; 
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   return (
@@ -57,7 +62,6 @@ export function Navbar({ isDark, toggleTheme }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
