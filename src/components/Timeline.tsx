@@ -2,14 +2,15 @@ import { motion } from "motion/react";
 import { Calendar, GraduationCap, BookOpen, Users } from "lucide-react";
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
+import React from "react";
 
 export function Timeline() {
   const timelineEvents = [
     {
       year: "2021/2",
       title: "Início da Graduação (Remoto)",
-      subtitle:
-        "UniSenaiPR - Engenharia de Software (antiga Faculdade da Indústria Senai)",
+      subtitle: `UniSenaiPR - Engenharia de Software
+(antiga Faculdade da Indústria Senai)`,
       description:
         "Início da jornada acadêmica em Engenharia de Software com aulas remotas devido à pandemia, explorando fundamentos de programação e lógica computacional.",
       icon: GraduationCap,
@@ -201,7 +202,6 @@ export function Timeline() {
           viewport={{ once: true }}
           className="relative"
         >
-          {/* Linha vertical da timeline */}
           <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2" />
 
           <div className="space-y-6 md:space-y-8">
@@ -213,7 +213,6 @@ export function Timeline() {
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 } items-start md:items-center`}
               >
-                {/* Bolinha colorida central */}
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   className={`absolute left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 
@@ -231,7 +230,6 @@ export function Timeline() {
                         index % 2 === 0 ? "" : "md:flex-row-reverse"
                       }`}
                     >
-                      {/* Ícone colorido */}
                       <div className="p-2 md:p-3 rounded-full border-2 border-border flex-shrink-0">
                         <event.icon
                           className={`h-4 w-4 md:h-5 md:w-5 ${event.color.replace(
@@ -252,7 +250,12 @@ export function Timeline() {
                           {event.title}
                         </h3>
                         <p className="text-sm md:text-base text-primary/80">
-                          {event.subtitle}
+                          {event.subtitle.split("\n").map((line, i) => (
+                            <React.Fragment key={i}>
+                              {line}
+                              <br />
+                            </React.Fragment>
+                          ))}
                         </p>
                       </div>
                     </div>
@@ -262,17 +265,11 @@ export function Timeline() {
                     </p>
 
                     <div className="flex flex-wrap gap-1 md:gap-2">
-                      {event.achievements.map(
-                        (achievement, achievementIndex) => (
-                          <Badge
-                            key={achievementIndex}
-                            variant="secondary"
-                            className="text-xs"
-                          >
-                            {achievement}
-                          </Badge>
-                        )
-                      )}
+                      {event.achievements.map((achievement, achievementIndex) => (
+                        <Badge key={achievementIndex} variant="secondary" className="text-xs">
+                          {achievement}
+                        </Badge>
+                      ))}
                     </div>
                   </Card>
                 </div>
