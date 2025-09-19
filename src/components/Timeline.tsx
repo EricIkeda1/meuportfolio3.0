@@ -4,8 +4,19 @@ import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
 import React from "react";
 
+type TimelineEvent = {
+  year: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  icon: React.ComponentType<{ className?: string }>;
+  dotColor: string;
+  iconColor: string;
+  achievements: string[];
+};
+
 export function Timeline() {
-  const timelineEvents = [
+  const timelineEvents: TimelineEvent[] = [
     {
       year: "2021/2",
       title: "Início da Graduação (Remoto) – 2º Período",
@@ -13,7 +24,8 @@ export function Timeline() {
       description:
         "Início da jornada acadêmica em Engenharia de Software com aulas remotas devido à pandemia, explorando fundamentos de programação e lógica computacional.",
       icon: GraduationCap,
-      color: "bg-blue-500",
+      dotColor: "bg-blue-500",
+      iconColor: "text-blue-500",
       achievements: [
         "Design e Aplicações de Engenharia de Software",
         "Estatística Orientada a Ciência de Dados",
@@ -28,7 +40,8 @@ export function Timeline() {
       description:
         "Transição para aulas presenciais, aprofundamento em estruturas de dados, projetos orientados a objetos e experiência do usuário.",
       icon: BookOpen,
-      color: "bg-green-500",
+      dotColor: "bg-green-500",
+      iconColor: "text-green-500",
       achievements: [
         "Estrutura e Armazenamentos de Dados",
         "Jornada de Aprendizagem – Experiência de Usuário...",
@@ -43,7 +56,8 @@ export function Timeline() {
       description:
         "Desenvolvimento de competências em modelagem de software e bancos de dados não relacionais.",
       icon: Users,
-      color: "bg-purple-500",
+      dotColor: "bg-purple-500",
+      iconColor: "text-purple-500",
       achievements: [
         "Concepção e Estruturação de Busca e Armazenamento...",
         "Jornada de Aprendizagem – Estratégias, Compliance...",
@@ -58,7 +72,8 @@ export function Timeline() {
       description:
         "Início do desenvolvimento em web frontend, inteligência artificial aplicada e métodos quantitativos.",
       icon: BookOpen,
-      color: "bg-orange-500",
+      dotColor: "bg-orange-500",
+      iconColor: "text-orange-500",
       achievements: [
         "Redes e Infraestruturas Conectadas",
         "Web Frontend Technologies",
@@ -73,7 +88,8 @@ export function Timeline() {
       description:
         "Aprofundamento em backend, desenvolvimento mobile e otimização de sistemas.",
       icon: Users,
-      color: "bg-cyan-500",
+      dotColor: "bg-cyan-500",
+      iconColor: "text-cyan-500",
       achievements: [
         "Backend Development",
         "Desenvolvimento Mobile",
@@ -88,7 +104,8 @@ export function Timeline() {
       description:
         "Experiência prática em arquitetura de software, data science, estágio supervisionado e gerência de qualidade.",
       icon: BookOpen,
-      color: "bg-red-500",
+      dotColor: "bg-blue-500",
+      iconColor: "text-red-500",
       achievements: [
         "Arquitetura de Software",
         "Data Science",
@@ -104,7 +121,8 @@ export function Timeline() {
       description:
         "Especialização em IoT, cloud computing, segurança e computação gráfica.",
       icon: Users,
-      color: "bg-purple-400",
+      dotColor: "bg-green-500",
+      iconColor: "text-purple-400",
       achievements: [
         "Arquitetura de Sistemas IoT e Cloud Computing",
         "Cybersecurity",
@@ -119,7 +137,8 @@ export function Timeline() {
       description:
         "Início do percurso de acordo com a grade reversa, focando em ciência, tecnologia e design de software aplicado à engenharia.",
       icon: Users,
-      color: "bg-yellow-500",
+      dotColor: "bg-purple-500",
+      iconColor: "text-yellow-500",
       achievements: [
         "Ciência, Tecnologia e Sustentabilidade",
         "Design de Software Aplicado a Engenharia",
@@ -134,7 +153,8 @@ export function Timeline() {
       description:
         "Refazendo as disciplinas essenciais com aprendizado em desenvolvimento de aplicações e introdução à visão computacional e machine learning.",
       icon: BookOpen,
-      color: "bg-teal-500",
+      dotColor: "bg-cyan-500",
+      iconColor: "text-teal-500",
       achievements: [
         "Jornada de Aprendizagem – Interface de Programação...",
         "Machine Learning e Visão Computacional",
@@ -147,7 +167,8 @@ export function Timeline() {
       description:
         "Refazendo disciplinas essenciais e concluindo o curso, com foco em Banco de Dados e inteligência artificial aplicada.",
       icon: BookOpen,
-      color: "bg-indigo-500",
+      dotColor: "bg-indigo-500",
+      iconColor: "text-indigo-500",
       achievements: [
         "Design de Estruturas de Busca e Armazenamento",
         "Inteligência Artificial Aplicada",
@@ -160,7 +181,8 @@ export function Timeline() {
       description:
         "Previsão de conclusão do curso de Engenharia de Software, pronto para novos desafios profissionais.",
       icon: GraduationCap,
-      color: "bg-pink-500",
+      dotColor: "bg-pink-500",
+      iconColor: "text-pink-500",
       achievements: ["Diploma", "Portfolio Completo", "Pronto para o Mercado"],
     },
   ];
@@ -215,7 +237,7 @@ export function Timeline() {
                 <motion.div
                   whileHover={{ scale: 1.2 }}
                   className={`absolute left-1/2 top-6 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 
-                              w-4 h-4 ${event.color} rounded-full z-20 border-2 border-background`}
+                              w-4 h-4 ${event.dotColor} rounded-full z-20 border-2 border-background`}
                 />
 
                 <div
@@ -231,10 +253,7 @@ export function Timeline() {
                     >
                       <div className="p-2 md:p-3 rounded-full border-2 border-border flex-shrink-0">
                         <event.icon
-                          className={`h-4 w-4 md:h-5 md:w-5 ${event.color.replace(
-                            "bg",
-                            "text"
-                          )}`}
+                          className={`h-4 w-4 md:h-5 md:w-5 ${event.iconColor}`}
                         />
                       </div>
 
