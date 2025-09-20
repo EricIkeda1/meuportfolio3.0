@@ -104,8 +104,8 @@ export function Timeline() {
       description:
         "Experiência prática em arquitetura de software, data science, estágio supervisionado e gerência de qualidade.",
       icon: BookOpen,
-      dotColor: "bg-blue-500",
-      iconColor: "text-red-500",
+      dotColor: "bg-green-500",
+      iconColor: "bg-green-500",
       achievements: [
         "Arquitetura de Software",
         "Data Science",
@@ -121,8 +121,8 @@ export function Timeline() {
       description:
         "Especialização em IoT, cloud computing, segurança e computação gráfica.",
       icon: Users,
-      dotColor: "bg-green-500",
-      iconColor: "text-purple-400",
+      dotColor: "bg-orange-500",
+      iconColor: "bg-orange-500",
       achievements: [
         "Arquitetura de Sistemas IoT e Cloud Computing",
         "Cybersecurity",
@@ -137,8 +137,8 @@ export function Timeline() {
       description:
         "Início do percurso de acordo com a grade reversa, focando em ciência, tecnologia e design de software aplicado à engenharia.",
       icon: Users,
-      dotColor: "bg-purple-500",
-      iconColor: "text-yellow-500",
+      dotColor: "bg-green-500",
+      iconColor: "text-green-500",
       achievements: [
         "Ciência, Tecnologia e Sustentabilidade",
         "Design de Software Aplicado a Engenharia",
@@ -154,7 +154,7 @@ export function Timeline() {
         "Refazendo as disciplinas essenciais com aprendizado em desenvolvimento de aplicações e introdução à visão computacional e machine learning.",
       icon: BookOpen,
       dotColor: "bg-cyan-500",
-      iconColor: "text-teal-500",
+      iconColor: "bg-cyan-500",
       achievements: [
         "Jornada de Aprendizagem – Interface de Programação...",
         "Machine Learning e Visão Computacional",
