@@ -31,11 +31,11 @@ export function Achievements() {
     },
     {
       icon: Target,
-      title: 'Especialização em Segurança',
+      title: 'Projetos da CyberSecurity',
       description: 'Implementação de algoritmos avançados de criptografia',
       category: 'Segurança',
       color: 'text-red-500',
-      highlights: ['AES Encryption', 'Diffie-Hellman', 'Comunicação Segura']
+      highlights: ['AES Encryption', 'Diffie-Hellman', 'Comunicação Segura', 'Cifras']
     },
     {
       icon: Lightbulb,
@@ -158,10 +158,6 @@ export function Achievements() {
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Projetos Concluídos', value: '9', icon: '📊' },
-              { label: 'Tecnologias Dominadas', value: '15+', icon: '⚡' },
-              { label: 'Anos de Experiência', value: '4+', icon: '📈' },
-              { label: 'Artigos Publicados', value: '3', icon: '📝' }
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -171,15 +167,6 @@ export function Achievements() {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
               >
-                <Card className="p-6 text-center hover:shadow-lg transition-all duration-300">
-                  <div className="text-3xl mb-2">{stat.icon}</div>
-                  <div className="text-2xl lg:text-3xl font-bold text-primary mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
-                </Card>
               </motion.div>
             ))}
           </div>

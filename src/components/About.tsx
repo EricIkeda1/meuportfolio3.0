@@ -131,25 +131,6 @@ export function About() {
           viewport={{ once: true }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center"
         >
-          {[
-            { label: 'Projetos', value: '9+' },
-            { label: 'Tecnologias', value: '15+' },
-            { label: 'Anos de Estudo', value: '4+' },
-            { label: 'Repositórios', value: '20+' }
-          ].map((stat, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className="p-6"
-            >
-              <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-                {stat.value}
-              </div>
-              <div className="text-muted-foreground">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>
