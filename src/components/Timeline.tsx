@@ -36,7 +36,7 @@ export function Timeline() {
     {
       year: "2023/1",
       title: "Aulas Presenciais e Primeiros Projetos - 3° Período",
-      subtitle: "Desenvolvimento Web e Estruturas de Dados",
+      subtitle: "Estruturas",
       description:
         "Transição para aulas presenciais, aprofundamento em estruturas de dados, projetos orientados a objetos e experiência do usuário.",
       icon: BookOpen,
