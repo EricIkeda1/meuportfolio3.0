@@ -149,71 +149,81 @@ export function Projects() {
                 className="group"
               >
                 <Card
-                  className="p-6 h-full hover:shadow-xl transition-all duration-300 cursor-pointer"
+                  className="p-6 h-full hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between"
                   onClick={() => setSelectedProject(project)}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">{project.year}</span>
+                  <div>
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm text-muted-foreground">{project.year}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        {project.repoUrl && (
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.repoUrl, '_blank');
+                            }}
+                          >
+                            <Github className="h-4 w-4" />
+                          </Button>
+                        )}
+                        {project.liveUrl && (
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.liveUrl, '_blank');
+                            }}
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </Button>
+                        )}
+                        {project.articleUrl && (
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.articleUrl, '_blank');
+                            }}
+                          >
+                            <FileText className="h-4 w-4" />
+                          </Button>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex gap-2">
-                      {project.repoUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.repoUrl, '_blank');
-                          }}
-                        >
-                          <Github className="h-4 w-4" />
-                        </Button>
-                      )}
-                      {project.liveUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.liveUrl, '_blank');
-                          }}
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
-                      )}
-                      {project.articleUrl && (
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(project.articleUrl, '_blank');
-                          }}
-                        >
-                          <FileText className="h-4 w-4" />
-                        </Button>
+
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
+
+                    {/* Tecnologias */}
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <Badge key={tech} variant="secondary" className="text-xs">
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{project.technologies.length - 3} mais
+                        </Badge>
                       )}
                     </div>
-                  </div>
 
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge variant="outline" className="text-xs">
-                        +{project.technologies.length - 3} mais
+                    {/* Status */}
+                    {project.status && (
+                      <Badge variant="destructive" className="text-xs mt-2">
+                        {project.status}
                       </Badge>
                     )}
                   </div>
@@ -296,6 +306,14 @@ export function Projects() {
                       ))}
                     </div>
                   </div>
+
+                  {/* Status no Modal */}
+                  {selectedProject.status && (
+                    <div className="mt-4">
+                      <h4 className="font-semibold mb-1">Status</h4>
+                      <Badge variant="destructive">{selectedProject.status}</Badge>
+                    </div>
+                  )}
                 </div>
               </>
             )}

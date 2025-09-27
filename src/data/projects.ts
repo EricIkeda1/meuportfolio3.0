@@ -9,13 +9,25 @@ export interface Project {
   liveUrl?: string;
   articleUrl?: string;
   image?: string;
+  status?: string;
 }
 
 export const categories = ['Todos', 'Front-end', 'Back-end', 'Full-stack', 'Segurança', 'Mobile', 'Pesquisa'];
 
 export const projects: Project[] = [
-  {
+    {
     id: '1',
+    title: 'CRM Ademicon Londrina',
+    year: '2025',
+    description:
+      'Projeto em andamento para a Ademicon Londrina, com foco em gestão de Leads, fluxo entre P.A.P., app e CRM. Implementa regras de importação de dados via csv, ciclo de vida do Lead (caducidade em 3 meses, transferência de consultores), auditoria, notificações automáticas e perfis de acesso (Gestor e Consultor). O sistema otimiza a captação de clientes e garante rastreabilidade e governança no processo.',
+    technologies: ['Flutter', 'Dart', 'Supabase', 'PostgreSQL'],
+    category: ['Full-stack', 'Mobile', 'Front-end', 'Back-end'],
+    repoUrl: 'https://github.com/EricIkeda1/JornadaAppAdemicom.git',
+    status: 'Em andamento', 
+  },
+  {
+    id: '2',
     title: 'Temperlights Mobile',
     year: '2025',
     description:
@@ -25,7 +37,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/Temperlights-Mobile',
   },
   {
-    id: '2',
+    id: '3',
     title: 'X4Glass - Rastreabilidade na Produção de Vidros',
     year: '2024',
     description:
@@ -37,7 +49,7 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1_EZlMgTwfFgNuCEBJgANGZLmApmMBnFF/view',
   },
   {
-    id: '3',
+    id: '4',
     title: 'Comunicação Segura com Diffie-Hellman e Cifra de César',
     year: '2024',
     description:
@@ -47,7 +59,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/Backend_Development',
   },
   {
-    id: '4',
+    id: '5',
     title: 'Criptografia AES em Python',
     year: '2024',
     description:
@@ -57,7 +69,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/AES',
   },
   {
-    id: '5',
+    id: '6',
     title: 'Iniciação Científica',
     year: '2024',
     description:
@@ -68,7 +80,7 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1khtYl3Diga8rj4k32tb-y4G8taZ01aLi/view',
   },
   {
-    id: '6',
+    id: '7',
     title: 'Projeto Arquitetura de Software',
     year: '2024',
     description:
