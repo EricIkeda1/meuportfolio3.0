@@ -54,6 +54,7 @@ export function Skills() {
       title: 'Ferramentas',
       color: 'text-orange-500',
       skills: [
+        { name: 'Figma', level: 35 },
         { name: 'Git/GitHub', level: 85 },
         { name: 'VS Code', level: 90 },
         { name: 'Vercel', level: 80 },
