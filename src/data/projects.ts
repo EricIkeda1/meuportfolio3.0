@@ -12,7 +12,7 @@ export interface Project {
   status?: string;
 }
 
-export const categories = ['Todos', 'Front-end', 'Back-end', 'Full-stack', 'Segurança', 'Mobile', 'Pesquisa'];
+export const categories = ['Todos','Back-end', 'Data Science', 'Front-end', 'Full-stack', 'Machine Learning', 'Mobile', 'Pesquisa', 'Segurança'];
 
 export const projects: Project[] = [
     {
@@ -28,6 +28,17 @@ export const projects: Project[] = [
   },
   {
     id: '2',
+    title: 'Previsão de Notas de Alunos com Machine Learning',
+    year: '2025',
+    description:
+      'Projeto de Machine Learning desenvolvido em Python para prever as notas finais de alunos com base em dados de desempenho e perfil. Inclui análise exploratória, visualização de correlações, pré-processamento de dados, seleção de features, aplicação de múltiplos regressors (Linear, Ridge, Lasso, Random Forest, Gradient Boosting, SVR) e otimização de hiperparâmetros. O projeto compara métodos, explica escolhas e avalia resultados com métricas de R² e RMSE.',
+    technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-Learn', 'Machine Learning', 'Colab'],
+    category: ['Machine Learning'],
+    repoUrl: 'https://github.com/EricIkeda1/Atv_APS_Regressao_Linear.git',
+    liveUrl: '/notebooks/Atv_APS_Regressao_Linear.html',
+  },
+  {
+    id: '3',
     title: 'Temperlights Mobile',
     year: '2025',
     description:
@@ -36,8 +47,19 @@ export const projects: Project[] = [
     category: ['Mobile'],
     repoUrl: 'https://github.com/EricIkeda1/Temperlights-Mobile',
   },
+    {
+    id: '4',
+    title: 'Projeto Data Science - Mãos à Obra',
+    year: '2024',
+    description:
+      'Projeto baseado no livro "Mãos à Obra", explorando análise de dados, pré-processamento, visualizações e insights de datasets reais. Inclui estatísticas descritivas, gráficos interativos e interpretação de resultados.',
+    technologies: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Jupyter Notebook', 'Data Science'],
+    category: ['Data Science'],
+    repoUrl: 'https://github.com/EricIkeda1/Projeto-Data-Science.git',
+    liveUrl: '/notebooks/Projeto_Data_Science.html',
+  },
   {
-    id: '3',
+    id: '5',
     title: 'X4Glass - Rastreabilidade na Produção de Vidros',
     year: '2024',
     description:
@@ -49,7 +71,7 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1_EZlMgTwfFgNuCEBJgANGZLmApmMBnFF/view',
   },
   {
-    id: '4',
+    id: '6',
     title: 'Comunicação Segura com Diffie-Hellman e Cifra de César',
     year: '2024',
     description:
@@ -59,7 +81,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/Backend_Development',
   },
   {
-    id: '5',
+    id: '7',
     title: 'Criptografia AES em Python',
     year: '2024',
     description:
@@ -69,7 +91,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/AES',
   },
   {
-    id: '6',
+    id: '8',
     title: 'Iniciação Científica',
     year: '2024',
     description:
@@ -80,7 +102,7 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1khtYl3Diga8rj4k32tb-y4G8taZ01aLi/view',
   },
   {
-    id: '7',
+    id: '9',
     title: 'Projeto Arquitetura de Software',
     year: '2024',
     description:
@@ -90,7 +112,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/Projeto_Arquitetura_de_Software',
   },
   {
-    id: '7',
+    id: '10',
     title: 'R3DrawChek_Jornada20241',
     year: '2024',
     description:
@@ -102,7 +124,7 @@ export const projects: Project[] = [
       'https://drive.google.com/file/d/1AQ5H8h6CHwjUKM8cKtmIOOxGm7CfM3Vu/view',
   },
   {
-    id: '8',
+    id: '11',
     title: 'Portfólio Pessoal - Engenharia de Software 1.0',
     year: '2024',
     description:
@@ -112,7 +134,7 @@ export const projects: Project[] = [
     liveUrl: 'https://ericikedaportfolio.vercel.app/home',
   },
   {
-    id: '9',
+    id: '12',
     title: 'Eng2025 Engenharia de Software',
     year: '2023',
     description:
@@ -122,7 +144,7 @@ export const projects: Project[] = [
     liveUrl: 'https://jornada-2023-2-full-stack.vercel.app/',
   },
   {
-    id: '10',
+    id: '13',
     title: 'Primeiro Projeto Mobile - Desenvolvimento Mobile',
     year: '2023',
     description:
@@ -131,4 +153,14 @@ export const projects: Project[] = [
     category: ['Mobile'],
     repoUrl: 'https://github.com/EricIkeda1/Projeto_Desenvolvimento_Mobile',
   },
+  {
+    id: '14',
+    title: 'Primeiro Projeto Backend/Frontend',
+    year: '2023',
+    description:
+      'Projeto web desenvolvido como meu primeiro contato com Django e desenvolvimento fullstack. A home page funciona como ponto de partida, com uma navbar simples que direciona para as páginas internas. Inclui páginas estáticas como uma calculadora visual e uma página sobre o Paraná, exibindo informações de cidades e imagens. Este projeto demonstra habilidades em estruturação de templates Django, organização de arquivos estáticos (CSS e imagens) e construção de layouts responsivos usando Bootstrap.',
+    technologies: ['Python', 'Django', 'HTML', 'CSS', 'Bootstrap'],
+    category: ['Full-stack', 'Back-end', 'Front-end'],
+    repoUrl: 'https://github.com/EricIkeda1/Backend_Development.git',
+  }
 ];
