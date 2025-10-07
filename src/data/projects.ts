@@ -125,6 +125,16 @@ export const projects: Project[] = [
   },
   {
     id: '11',
+    title: 'Leitores e Escritores',
+    year: '2024',
+    description:
+      'Projeto desenvolvido para a disciplina de Sistemas Operacionais de Tempo Real, abordando o problema clássico de sincronização conhecido como "Leitores e Escritores". O objetivo é garantir o acesso concorrente seguro a uma região crítica, onde múltiplas threads podem ler simultaneamente, mas apenas uma pode escrever por vez. A solução foi implementada em linguagem C utilizando Threads e mecanismos de exclusão mútua, assegurando consistência e eficiência no compartilhamento de recursos. O código foi amplamente comentado para facilitar o entendimento da lógica e do funcionamento de cada etapa da implementação.',
+    technologies: ['C', 'Sistemas Operacionais de Tempo Real', 'Threads'],
+    category: ['Back-end'],
+    repoUrl: 'https://github.com/EricIkeda1/Leitores_e_esctritores',
+  },
+  {
+    id: '12',
     title: 'Portfólio Pessoal - Engenharia de Software 1.0',
     year: '2024',
     description:
@@ -134,7 +144,7 @@ export const projects: Project[] = [
     liveUrl: 'https://ericikedaportfolio.vercel.app/home',
   },
   {
-    id: '12',
+    id: '13',
     title: 'Eng2025 Engenharia de Software',
     year: '2023',
     description:
@@ -144,7 +154,7 @@ export const projects: Project[] = [
     liveUrl: 'https://jornada-2023-2-full-stack.vercel.app/',
   },
   {
-    id: '13',
+    id: '14',
     title: 'Primeiro Projeto Mobile - Desenvolvimento Mobile',
     year: '2023',
     description:
@@ -154,7 +164,7 @@ export const projects: Project[] = [
     repoUrl: 'https://github.com/EricIkeda1/Projeto_Desenvolvimento_Mobile',
   },
   {
-    id: '14',
+    id: '15',
     title: 'Primeiro Projeto Backend/Frontend',
     year: '2023',
     description:
