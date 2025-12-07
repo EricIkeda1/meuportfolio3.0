@@ -17,14 +17,13 @@ export const categories = ['Todos','Back-end', 'Data Science', 'Front-end', 'Ful
 export const projects: Project[] = [
     {
     id: '1',
-    title: 'CRM Ademicon Londrina',
+    title: 'Ademiconnect',
     year: '2025',
     description:
-      'Projeto em andamento para a Ademicon Londrina, com foco em gestão de Leads, fluxo entre P.A.P., app e CRM. Implementa regras de importação de dados via csv, ciclo de vida do Lead (caducidade em 3 meses, transferência de consultores), auditoria, notificações automáticas e perfis de acesso (Gestor e Consultor). O sistema otimiza a captação de clientes e garante rastreabilidade e governança no processo.',
+      'Projeto desenvolvido para a Ademicon Londrina, com foco em gestão de Leads, fluxo entre P.A.P., app e CRM. Implementa regras de importação de dados via csv, ciclo de vida do Lead (caducidade em 3 meses, transferência de consultores), auditoria, notificações automáticas e perfis de acesso (Gestor e Consultor). O sistema otimiza a captação de clientes e garante rastreabilidade e governança no processo.',
     technologies: ['Cache/Json', 'Dart', 'Flutter', 'Github', 'Supabase', 'Real Time', 'PostgreSQL' ],
     category: ['Full-stack', 'Mobile', 'Front-end', 'Back-end'],
-    repoUrl: 'https://github.com/EricIkeda1/JornadaAppAdemicom.git',
-    status: 'Em andamento', 
+    repoUrl: 'https://github.com/EricIkeda1/Ademiconnect',
   },
   {
     id: '2',
